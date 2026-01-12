@@ -1,0 +1,64 @@
+# Git関連
+.git
+.gitignore
+.gitattributes
+
+# Node.js関連
+node_modules
+npm-debug.log
+yarn-error.log
+
+# ビルド成果物（Dockerfileで再ビルドするため）
+dist
+
+# テスト関連
+coverage
+test-results
+*.test.ts
+__tests__
+.nyc_output
+test-*.db
+
+# 開発環境関連
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# ドキュメント
+README.md
+doc
+*.md
+
+# CI/CD
+.github
+.gitlab-ci.yml
+.travis.yml
+
+# 環境変数ファイル（機密情報を含む可能性があるため）
+.env
+.env.*
+!.env.example
+
+# ログファイル
+*.log
+logs
+
+# データベースファイル
+*.db
+*.db-shm
+*.db-wal
+
+# OS関連
+.DS_Store
+Thumbs.db
+
+# Claude Code関連
+.claude
+
+# その他
+tmp
+temp
+.tmp
+.cache

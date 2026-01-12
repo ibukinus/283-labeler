@@ -1,11 +1,19 @@
 {
   "compilerOptions": {
-    "strict": true,
-    "target": "ESNext",
+    "target": "ES2022",
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
-    "allowSyntheticDefaultImports": true,
+    "strict": true,
     "esModuleInterop": true,
-    "types": ["node"]
-  }
+    "skipLibCheck": true,
+    "outDir": "./dist",
+    "resolveJsonModule": true,
+    "forceConsistentCasingInFileNames": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "isolatedModules": true
+  },
+  "include": ["src/**/*", "scripts/**/*"],
+  "exclude": ["node_modules", "dist"]
 }

@@ -1,0 +1,66 @@
+version: '3.8'
+
+services:
+  labeler:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: 283-labeler:latest
+    container_name: bluesky-labeler
+    restart: unless-stopped
+
+    # 環境変数
+    environment:
+      # 必須: Labeler設定
+      - LABELER_DID=${LABELER_DID}
+      - LABELER_SIGNING_KEY=${LABELER_SIGNING_KEY}
+      - LABELER_IDENTIFIER=${LABELER_IDENTIFIER}
+      - LABELER_PASSWORD=${LABELER_PASSWORD}
+
+      # オプション: ポート設定
+      - LABELER_PORT=${LABELER_PORT:-14831}
+
+      # オプション: データベースパス
+      - LABELER_DB_PATH=/app/data/labels.db
+      - DB_FILE=/app/data/database.db
+
+      # オプション: ログレベル
+      - LOG_LEVEL=${LOG_LEVEL:-info}
+
+    # ポートマッピング
+    ports:
+      - "${LABELER_PORT:-14831}:${LABELER_PORT:-14831}"
+
+    # ボリュームマウント（データ永続化）
+    volumes:
+      - labeler-data:/app/data
+
+    # ヘルスチェック
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:${LABELER_PORT:-14831}/.well-known/did.json"]
+      interval: 30s
+      timeout: 3s
+      start_period: 10s
+      retries: 3
+
+    # リソース制限（必要に応じて調整）
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 512M
+        reservations:
+          cpus: '0.5'
+          memory: 256M
+
+    # ログ設定
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+# 名前付きボリューム
+volumes:
+  labeler-data:
+    driver: local

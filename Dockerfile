@@ -35,6 +35,9 @@ RUN npm ci --omit=dev && \
 # ============================================
 FROM node:20-alpine
 
+# ヘルスチェック用にwgetをインストール
+RUN apk add --no-cache wget
+
 # セキュリティ：non-rootユーザーで実行
 RUN addgroup -g 1001 -S nodejs && \
     adduser -S labeler -u 1001
@@ -57,9 +60,9 @@ VOLUME ["/app/data"]
 # non-rootユーザーに切り替え
 USER labeler
 
-# ヘルスチェック（ポート14831が開いているか確認）
+# ヘルスチェック（LabelerServerのヘルスエンドポイントを確認）
 HEALTHCHECK --interval=30s --timeout=3s --start-period=10s --retries=3 \
-    CMD wget --no-verbose --tries=1 --spider http://localhost:${LABELER_PORT:-14831}/.well-known/did.json || exit 1
+    CMD wget --no-verbose --tries=1 --spider http://localhost:${LABELER_PORT:-14831}/xrpc/_health || exit 1
 
 # ポートを公開
 EXPOSE 14831

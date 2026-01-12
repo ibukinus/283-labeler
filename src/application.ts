@@ -65,16 +65,22 @@ export class ApplicationContext {
           dbPath: this.config.labelerDbPath,
         });
 
-        server.start(this.config.labelerPort, (error: Error | null, address?: string) => {
-          if (error) {
-            this.logger.error('LabelerServer起動失敗:', { error: error.message });
-            reject(error);
-          } else {
-            this.logger.info(`LabelerServer起動成功: ${address || `port ${this.config.labelerPort}`}`);
-            this.labelerServer = server;
-            resolve(server);
+        server.start(
+          {
+            port: this.config.labelerPort,
+            host: '0.0.0.0',
+          },
+          (error: Error | null, address?: string) => {
+            if (error) {
+              this.logger.error('LabelerServer起動失敗:', { error: error.message });
+              reject(error);
+            } else {
+              this.logger.info(`LabelerServer起動成功: ${address || `port ${this.config.labelerPort}`}`);
+              this.labelerServer = server;
+              resolve(server);
+            }
           }
-        });
+        );
       } catch (error) {
         this.logger.error('LabelerServer初期化エラー:', { error });
         reject(error);

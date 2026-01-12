@@ -1,4 +1,5 @@
 import { Jetstream } from '@skyware/jetstream';
+import WebSocket from 'ws';
 import { ApplicationContext } from './application.js';
 import { createLogger } from './logger.js';
 import { LikeHandler } from './handlers/like-handler.js';
@@ -42,6 +43,7 @@ async function main(): Promise<void> {
   // Jetstream接続
   const jetstream = new Jetstream({
     wantedCollections: ['app.bsky.feed.like'], // Likeイベントのみ
+    ws: WebSocket,
   });
 
   // ApplicationContextにJetstreamを設定

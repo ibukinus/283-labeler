@@ -35,7 +35,8 @@
     "@skyware/jetstream": "^0.2.0",
     "@skyware/labeler": "^0.2.0",
     "better-sqlite3": "^11.0.0",
-    "dotenv": "^16.4.0"
+    "dotenv": "^16.4.0",
+    "ws": "^8.18.0"
   },
   "devDependencies": {
     "@jest/globals": "^30.2.0",

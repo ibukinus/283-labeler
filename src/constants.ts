@@ -286,4 +286,10 @@ export const LABELS: Label[] = [
       { lang: 'ja', name: 'Sonic Heart (and Signal)', description: 'Speed Up! Keep Running!' },
     ]
   },
+  {
+    identifier: 'unit-sigmadesire',
+    locales: [
+      { lang: 'ja', name: '∑ Desire', description: 'NO DESIRE, NO REWARD.' },
+    ]
+  },
 ];

@@ -289,7 +289,13 @@ export const LABELS: Label[] = [
   {
     identifier: 'unit-sigmadesire',
     locales: [
-      { lang: 'ja', name: '∑ Desire', description: 'NO DESIRE, NO REWARD.' },
+      { lang: 'ja', name: '∑ Desire', description: 'No desire, No reward.' },
+    ]
+  },
+  {
+    identifier: 'unit-thefutaritraveler',
+    locales: [
+      { lang: 'ja', name: 'ザ・ふたりトラベラー', description: '旅しよう、好き時間' },
     ]
   },
 ];

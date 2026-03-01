@@ -88,4 +88,5 @@ export const TRIGGER_MAP: Record<string, string> = {
   'at://did:plc:ck57xb7qty7kolim6avksmpr/app.bsky.feed.post/3mc7jszahum27': 'unit-fumage',
   'at://did:plc:ck57xb7qty7kolim6avksmpr/app.bsky.feed.post/3mc7jtg54x427': 'unit-sonicheart',
   'at://did:plc:ck57xb7qty7kolim6avksmpr/app.bsky.feed.post/3mdkuqv5ams2n': 'unit-sigmadesire',
+  'at://did:plc:ck57xb7qty7kolim6avksmpr/app.bsky.feed.post/3mfysarmnx22e': 'unit-thefutaritraveler',
 };

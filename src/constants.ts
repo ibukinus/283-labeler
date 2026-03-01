@@ -295,7 +295,7 @@ export const LABELS: Label[] = [
   {
     identifier: 'unit-thefutaritraveler',
     locales: [
-      { lang: 'ja', name: 'ザ・ふたりトラベラー', description: '旅しよう、好き時間' },
+      { lang: 'ja', name: 'ザ・ふたりトラベラー', description: '旅しよう、好き時間。' },
     ]
   },
 ];

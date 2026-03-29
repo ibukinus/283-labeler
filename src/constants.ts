@@ -298,4 +298,10 @@ export const LABELS: Label[] = [
       { lang: 'ja', name: 'ザ・ふたりトラベラー', description: '旅しよう、好き時間。' },
     ]
   },
+  {
+    identifier: 'unit-higanryu',
+    locales: [
+      { lang: 'ja', name: '彼岸流', description: '咲きし悲願の赤き花、手向けるも儚し' },
+    ]
+  },
 ];

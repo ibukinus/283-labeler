@@ -304,4 +304,10 @@ export const LABELS: Label[] = [
       { lang: 'ja', name: '彼岸流', description: '咲きし悲願の赤き花、手向けるも儚し' },
     ]
   },
+  {
+    identifier: 'unit-no1feelalone',
+    locales: [
+      { lang: 'ja', name: 'No 1 feel alone', description: 'この頃みんなひとりじゃない？' },
+    ]
+  },
 ];
